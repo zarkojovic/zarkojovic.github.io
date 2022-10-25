@@ -179,7 +179,21 @@
   border: 1px solid #313131;
   padding: 10px 20px;
   width: 100%;
+  color: #f7f3f7;
   border-radius: 30px;
+}
+#preloader {
+  z-index: 999;
+  background-color: #040404;
+  transition: all 0.4s;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  position: fixed;
+  overflow: hidden;
+  img {
+    width: 120px;
+  }
 }
 body {
   background-color: #040404;
@@ -298,6 +312,7 @@ nav {
 #selection {
   background-color: #0b0b0b;
   position: relative;
+  overflow: hidden !important;
   .service {
     z-index: 2;
     position: relative;
@@ -308,7 +323,8 @@ nav {
     .service-text-wrap {
       height: 0px;
       overflow-y: hidden;
-      transition: all 0.3s;
+      opacity: 0;
+      transition: all 0.4s;
     }
     .service-text {
       //   display: none;
@@ -321,8 +337,8 @@ nav {
         }
       }
       .service-text-wrap {
-        // display: block;
-        // height: auto !important;
+        height: fit-content !important;
+        opacity: 1;
       }
     }
     .service-overlay {
@@ -336,12 +352,12 @@ nav {
       display: flex;
       align-items: center;
       img {
-        width: 70px;
+        width: 50px;
       }
       .service-icon {
         transition: all 0.3s;
         transform: rotate(-45deg);
-        font-size: 80px;
+        font-size: 50px;
       }
     }
   }
@@ -356,7 +372,7 @@ nav {
   }
 }
 #about {
-  overflow: hidden;
+  overflow: hidden !important;
   .about-lines {
     position: absolute;
     width: 100%;
@@ -371,7 +387,7 @@ nav {
   }
 }
 #promo {
-  background-image: url("../img/gym-1.png");
+  background-image: url("/img/promo-cover.jpg");
   background-position: center;
   background-size: cover;
   height: 300px;
@@ -436,6 +452,7 @@ nav {
     justify-content: center;
     background-color: #131619;
     border-radius: 20px;
+    height: 100%;
     .pricing-wrap {
       width: 75%;
     }
@@ -448,7 +465,15 @@ nav {
   }
 }
 footer {
-  h5 {
+  .footer-link {
+    margin: 10px 0px !important;
+    font-size: 18px;
+    a {
+      color: #f7f3f7;
+    }
+    .letter-link {
+      letter-spacing: 1px;
+    }
   }
 }
 @media screen and(max-width:1025px) {
@@ -509,6 +534,11 @@ footer {
       width: 100%;
     }
   }
+  footer {
+    .footer-link {
+      font-size: 16px;
+    }
+  }
 }
 @media screen and(max-width:426px) {
   nav {
@@ -549,7 +579,7 @@ footer {
       .service-overlay {
         align-items: center;
         img {
-          width: 70px;
+          // width: 70px;
         }
         h4 {
           font-size: 24px;
